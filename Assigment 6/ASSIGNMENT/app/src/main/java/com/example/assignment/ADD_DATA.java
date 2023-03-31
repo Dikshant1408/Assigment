@@ -18,11 +18,11 @@ import com.google.firebase.ktx.Firebase;
 
 public class ADD_DATA extends AppCompatActivity {
 
-    String productID, productName, productPrice, productQuantity;
+    private String productID, productName, productPrice, productQuantity;
     FirebaseDatabase db;
     DatabaseReference reference;
-    Button addData;
-    TextView prodID, prodName, prodPrice, prodQuantity;
+    private Button addData;
+    private TextView prodID, prodName, prodPrice, prodQuantity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public class ADD_DATA extends AppCompatActivity {
                 if (!productID.isEmpty() && !productName.isEmpty() && !productPrice.isEmpty() && !productQuantity.isEmpty()){
                     Users users = new Users(productID, productName, productPrice, productQuantity);
                     db = FirebaseDatabase.getInstance();
-                    reference = db.getReference("Users");
+                    reference = db.getReference("Product Info");
                     reference.child(productID).setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {

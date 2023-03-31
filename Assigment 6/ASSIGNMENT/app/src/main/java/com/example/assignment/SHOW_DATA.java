@@ -19,9 +19,9 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SHOW_DATA extends AppCompatActivity {
 
     DatabaseReference reference;
-    Button readDataBtn;
-    EditText etProductID;
-    TextView tvProductName, tvProductPrice, tvProductQuantity;
+    private Button readDataBtn;
+    private EditText etProductID;
+    private TextView tvProductName, tvProductPrice, tvProductQuantity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public class SHOW_DATA extends AppCompatActivity {
 
     private void readData(String productID) {
 
-        reference = FirebaseDatabase.getInstance().getReference("Users");
+        reference = FirebaseDatabase.getInstance().getReference("Product In");
         reference.child(productID).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
