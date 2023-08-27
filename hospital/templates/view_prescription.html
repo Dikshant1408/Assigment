@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prescription Content</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+      h1 {
+        color: #444444;
+        text-align: center;
+      }
+      .prescription {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #dddddd;
+        border-radius: 5px;
+        background-color: #ffffff;
+      }
+      .prescription p {
+        margin: 0;
+      }
+      .prescription h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+      .prescription span {
+        font-weight: bold;
+      }
+      .back-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: darkblue;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="GET" action="{% url 'patient_dashboard' %}">
+      <button type="submit" class="back-btn">Back to Dashboard</button>
+    </form>
+    <h1>Prescription Content</h1>
+    {% for prescription in prescriptions %}
+      <div class="prescription">
+        <h3>Prescription {{ forloop.counter }}</h3>
+        <p><span>Patient:</span> {{ prescription.patient }}</p>
+        <p><span>Doctor:</span> {{ prescription.doctor }}</p>
+        <p><span>Content:</span> {{ prescription.content|linebreaksbr }}</p>
+        <p><span>Created at:</span> {{ prescription.created_at }}</p>
+      </div>
+    {% empty %}
+      <p>No prescriptions found.</p>
+    {% endfor %}
+  </body>
+</html>

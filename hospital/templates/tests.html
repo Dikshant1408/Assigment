@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+  <head>
+    <title>Medical Tests</title>
+    <style>
+      /* CSS styles for the page */
+      body {
+        background-color: #f2f2f2;
+        font-family: Arial, sans-serif;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+      
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+        margin-bottom: 30px;
+      }
+      
+      .test {
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        background-color: #fff;
+        overflow: hidden;
+      }
+      
+      .test img {
+        float: left;
+        margin-right: 20px;
+        width: 200px;
+        height: auto;
+        border: 1px solid #ccc;
+      }
+      
+      .test h2 {
+        margin-top: 0;
+        font-size: 28px;
+        color: #3a3a3a;
+      }
+      
+      .test p {
+        margin-top: 10px;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+      
+      .test ul {
+        margin-top: 10px;
+        margin-bottom: 0;
+        padding-left: 20px;
+        font-size: 16px;
+      }
+      
+      .test li {
+        margin-bottom: 5px;
+      }
+      
+      .test:nth-child(odd) {
+        background-color: #f2f2f2;
+      }
+
+      button {
+			background-color: lightgray;
+			color: black;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			width: 100%;
+		   }
+	  button:hover {
+			background-color: lightgray;
+		  }
+    </style>
+  </head>
+  <body>
+    <h1>Medical Tests</h1>
+    <form method="GET" action="{% url 'landing_page' %}">
+		<button type="submit" class="back-btn">Back to Hospital</button>
+	</form>
+    <div class="test">
+      <img src="{% static 'x-ray.jpg' %}" alt="X-ray image">
+      <h2>X-ray</h2>
+      <p>An X-ray is a medical imaging test that helps physicians diagnose and treat medical conditions.</p>
+      <ul>
+        <li>Uses radiation to produce images of internal structures</li>
+        <li>Often used to diagnose bone fractures and lung diseases</li>
+        <li>Typically takes only a few minutes to complete</li>
+      </ul>
+    </div>
+    <div class="test">
+      <img src="{% static 'mri.jpg' %}" alt="MRI image">
+      <h2>Magnetic Resonance Imaging (MRI)</h2>
+      <p>MRI is a non-invasive medical imaging test that produces detailed images of internal structures.</p>
+      <ul>
+        <li>Uses a magnetic field and radio waves to produce images</li>
+        <li>Often used to diagnose soft tissue injuries and neurological conditions</li>
+        <li>Takes longer to complete than X-ray, typically 30-60 minutes</li>
+      </ul>
+    </div>
+    <div class="test">
+      <img src="{% static 'ultrasound.jpg' %}" alt="Ultrasound image">
+      <h2>Ultrasound</h2>
+      <p>An ultrasound is a non-invasive medical test that uses high-frequency sound waves to produce images of internal organs and tissues.</p>
+      <ul>
+        <li>No radiation is involved</li>
+        <li>Often used to visualize the heart, blood vessels, and reproductive organs</li>
+        <li>Typically takes only a few minutes to complete</li>
+      </ul>
+    </div>
+    <div class="test">
+        <img src="{% static 'ct-scan.jpeg' %}" alt="CT scan image">
+        <h2>Computed Tomography (CT) Scan</h2>
+        <p>A CT scan is a medical imaging test that uses X-rays and computer technology to produce detailed images of internal structures.</p>
+        <ul>
+          <li>Uses more radiation than X-ray</li>
+          <li>Often used to diagnose cancer, trauma, and vascular disease</li>
+          <li>Typically takes 10-30 minutes to complete</li>
+        </ul>
+      </div>
+    </body>
+  </html>

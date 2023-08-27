@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Appointment Fixed Successfully</title>
+    <style>
+      /* CSS styling for the page */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+      
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      }
+      
+      h1 {
+        font-size: 36px;
+        margin-top: 0;
+        color: #0077cc;
+      }
+      
+      p {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      
+      button {
+        background-color: #0077cc;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+      
+      button:hover {
+        background-color: #005ea6;
+      }
+      
+      a {
+        color: #0077cc;
+        text-decoration: none;
+      }
+      
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Appointment Fixed Successfully</h1>
+      <p>Your appointment has been fixed successfully.</p>
+      <a href="{% url 'patient_dashboard' %}">
+        <button>Back to Dashboard</button>
+      </a>
+    </div>
+  </body>
+</html>

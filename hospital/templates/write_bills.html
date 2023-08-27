@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hospital Management System Bill Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+
+      .header {
+        text-align: center;
+        margin: 30px;
+      }
+
+      h1 {
+        margin-bottom: 10px;
+      }
+
+      form {
+        max-width: 500px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px #ccc;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .bill-btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .bill-btn:hover {
+        background-color: #0069d9;
+      }
+
+      .back-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: darkblue;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="GET" action="{% url 'doctor_dashboard' %}">
+      <button type="submit" class="back-btn">Back to Dashboard</button>
+    </form>  
+    <div class="header">
+      <h1>Hospital Management System Bill Form</h1>
+      <h2>Welcome {{ doctor.name }}</h2>
+    </div>
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="patient_id">Patient ID:</label>
+        <input type="number" id="patient_id" name="patient_id">
+      </div>
+      <div class="form-group">
+        <label for="prescription_id">Prescription ID:</label>
+        <input type="number" id="prescription_id" name="prescription_id">
+      </div>
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description">
+      </div>
+      <div class="form-group">
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount">
+      </div>
+      <button type="submit" class="bill-btn">Generate Bill</button>
+    </form>
+  </body>
+</html>

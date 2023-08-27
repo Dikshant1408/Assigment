@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Management System</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="{% static 'logo.png' %}" alt="Hospital Management System">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'tests' %}">Tests</a></li>
+                <li><a href="{% url 'patient_landing' %}">Patients</a></li>
+                <li><a href="{% url 'doctor_login' %}">Doctors</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hospital Management System</h1>
+            <p>A powerful and easy-to-use solution for managing your healthcare organization</p>
+            <form method="GET" action="https://www.cronj.com/blog/what-is-hospital-management-system-features-modules-uses-blog/">
+                <button type="submit" class="btn btn-primary">Learn More</button>
+            </form>              
+        </div>
+        <div class="hero-image">
+            <img src="{% static 'hero-image.png' %}" alt="Hospital Management System">
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Features</h2>
+        <div class="feature">
+            <img src="{% static 'feature-1.png' %}" alt="Appointment Scheduling">
+            <h3>Appointment Scheduling</h3>
+            <p>Schedule appointments with patients, manage patient data, and track appointment history.</p>
+        </div>
+        <div class="feature">
+            <img src="{% static 'feature-2.png' %}" alt="Patient Records Management">
+            <h3>Patient Records Management</h3>
+            <p>Manage patient records.</p>
+        </div>
+        <div class="feature">
+            <img src="{% static 'feature-3.png' %}" alt="Billing">
+            <h3>Billing</h3>
+            <p>Provides billing processes.</p>
+        </div>
+        <div class="feature">
+            <img src="{% static 'feature-4.png' %}" alt="Doctor Management">
+            <h3>Doctor Management</h3>
+            <p>Register, login, view their appointments, manage appointments, write prescriptions.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonial">
+            <p>"The Hospital Management System has transformed the way we manage our healthcare organization. It's easy to use, customizable, and has helped us save time and money. Highly recommended!"</p>
+            <div class="testimonial-author">
+                <img src="{% static 'testimonial-1.jpg' %}" alt="Testimonial Author">
+                <p>John Smith, CEO of XYZ Healthcare</p>
+            </div>
+        </div>
+        <div class="testimonial">
+            <p>"We've been using the Hospital Management System for over a year now and it's been a game-changer for our practice. The system is robust, reliable, and has helped us improve patient outcomes."</p>
+            <div class="testimonial-author">
+                <img src="{% static 'testimonial-2.jpg' %}" alt="Testimonial Author">
+                <p>Jane Doe, MD at ABC Clinic</p>
+            </div>
+        </div>
+        <div class="testimonial">
+            <p>"The Hospital Management System has made it easy for us to manage patient records, appointments, and billing. It's a comprehensive solution that has helped us streamline our operations and provide better care to our patients."</p>
+            <div class="testimonial-author">
+                <img src="{% static 'testimonial-3.jpg' %}" alt="Testimonial Author">
+                <p>David Lee, COO of 123 Hospital</p>
+            </div>
+        </div>
+        <div class="testimonial">
+            <p>"We were struggling to manage our patients and doctors, but the Hospital Management System has made it easy for us to track and order what we need. It's been a lifesaver!"</p>
+            <div class="testimonial-author">
+                <img src="{% static 'testimonial-4.jpg' %}" alt="Testimonial Author">
+                <p>Emily Chen, CFO of Acme Healthcare</p>
+            </div>
+        </div>
+    </section>
+    <!-- About Section -->
+    <section class="about">
+        <h2>About Us</h2>
+        <p>We are a team of experienced healthcare professionals who understand the challenges and opportunities in the industry. Our mission is to create innovative solutions that help healthcare organizations provide better care to their patients. With the Hospital Management System, we aim to simplify operations, reduce costs, and improve outcomes.</p>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+        <h2>Contact Us</h2>
+        <form action="{% url 'contact_us' %}" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+
+            <input type="submit" value="Submit">
+        </form>
+        <div class="contact-info">
+            <h4>Address</h4>
+            <p>123 Main Street<br>Anytown, India</p>
+
+            <h4>Phone</h4>
+            <p>(+91) 555-5555</p>
+
+            <h4>Email</h4>
+            <p>info@hospitalmanagementsystem.com</p>
+        </div>
+    </section>
+</body>
+</html>
+

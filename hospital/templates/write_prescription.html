@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Write Prescription</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Header styles */
+        .header {
+            background-color: #3f51b5;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        
+        .header h2 {
+            margin-top: 10px;
+            font-size: 24px;
+        }
+        
+        /* Container styles */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Form styles */
+        form {
+            margin-top: 20px;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input[type="number"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+        
+        .btn-btn-primary {
+            background-color: #3f51b5;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .btn-btn-primary:hover {
+            background-color: #0069d9;
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: darkblue;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            }
+    </style>
+  </head>
+  <body>
+    <form method="GET" action="{% url 'doctor_dashboard' %}">
+        <button type="submit" class="back-btn">Back to Dashboard</button>
+    </form> 
+    <div class="header">
+        <h1>Hospital Management System Doctor Dashboard</h1>
+        <h2>Welcome {{ doctor.name }}</h2>
+    </div>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="patient_id">Patient ID:</label>
+                <input type="number" class="form-control" id="patient_id" name="patient_id">
+            </div>
+            <div class="form-group">
+                <label for="content">Content:</label>
+                <textarea class="form-control" id="content" name="content" rows="5"></textarea>
+            </div>
+            <button type="submit" class="btn-btn-primary">Save Prescription</button>
+        </form>
+    </div>
+  </body>
+</html>

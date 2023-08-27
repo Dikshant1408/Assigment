@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>View Bills</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f2f2f2;
+                padding: 20px;
+            }
+            
+            h1 {
+                color: #444444;
+                text-align: center;
+            }
+            
+            .bill {
+                border: 1px solid #cccccc;
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+            
+            .bill h3 {
+                font-size: 18px;
+                margin-top: 0;
+            }
+            
+            .bill p {
+                margin: 0;
+            }
+            
+            .bill span {
+                font-weight: bold;
+                margin-right: 5px;
+            }
+
+            .back-btn {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                background-color: darkblue;
+                color: white;
+                border: none;
+                padding: 10px;
+                font-size: 16px;
+                cursor: pointer;
+                border-radius: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <form method="GET" action="{% url 'patient_dashboard' %}">
+            <button type="submit" class="back-btn">Back to Dashboard</button>
+        </form>
+        <h1>Bills</h1>
+        {% for bill in bills %}
+          <div class="bill">
+            <h3>Bill {{ forloop.counter }}</h3>
+            <p><span>Patient:</span> {{ bill.patient }}</p>
+            <p><span>Doctor:</span> {{ bill.doctor }}</p>
+            <p><span>Prescription:</span> {{ bill.prescription }}</p>
+            <p><span>Description:</span> {{ bill.description }}</p>
+            <p><span>Amount:</span> {{ bill.amount }}</p>
+            <p><span>Created at:</span> {{ bill.date_created }}</p>
+          </div>
+        {% empty %}
+          <p>No bills found.</p>
+        {% endfor %}
+      </body>
+</html>

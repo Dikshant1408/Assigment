@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prescription Saved Successfully</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f2f2f2;
+          padding: 20px;
+        }
+        
+        h1 {
+          color: #444444;
+          text-align: center;
+        }
+        
+        form {
+          display: flex;
+          justify-content: center;
+          margin-top: 20px;
+        }
+        
+        input[type="submit"] {
+          background-color: #3f51b5;
+          border: none;
+          color: white;
+          padding: 12px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+          border-radius: 5px;
+        }
+        
+        input[type="submit"]:hover {
+          background-color: #3f51b5;
+        }
+      </style>
+  </head>
+  <body>
+    <h1>Prescription Saved Successfully</h1>
+    <form action="{% url 'doctor_dashboard' %}" method="GET">
+      <input type="submit" value="Go to Dashboard">
+    </form>
+  </body>
+</html>
