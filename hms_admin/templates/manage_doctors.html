@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hospital Management System</title>
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+	<!-- Custom CSS -->
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+
+		.card {
+			background-color: #fff;
+			box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+			margin: 20px;
+			padding: 20px;
+			text-align: center;
+			max-width: 400px;
+			width: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.card a {
+			text-decoration: none;
+			color: black;
+		}
+
+		.card i {
+			font-size: 50px;
+			margin-bottom: 20px;
+			color: #2ecc71;
+		}
+
+		.card h2 {
+			font-size: 30px;
+			margin-bottom: 10px;
+			font-weight: normal;
+			color: #2c3e50;
+		}
+
+		.card p {
+			font-size: 16px;
+			margin-bottom: 20px;
+			color: #7f8c8d;
+		}
+
+		.back-btn {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		background-color: #4CAF50;
+		color: white;
+		border: none;
+		padding: 10px;
+		font-size: 16px;
+		cursor: pointer;
+		border-radius: 5px;
+		}
+	</style>
+</head>
+<body>
+	<form method="GET" action="{% url 'admin_dashboard' %}">
+		<button type="submit" class="back-btn">Back to Dashboard</button>
+	</form>
+	<div class="container">
+		<div class="card">
+			<a href="{% url 'register_doctor' %}">
+				<i class="fas fa-user-md"></i>
+				<h2>Register a Doctor</h2>
+				<p>Add a new doctor to the system.</p>
+			</a>
+		</div>
+		<div class="card">
+			<a href="{% url 'doctor_list' %}">
+				<i class="fas fa-users"></i>
+				<h2>Manage Doctors</h2>
+				<p>View and manage doctor information and schedules.</p>
+			</a>
+		</div>
+	</div>
+</body>
+</html>

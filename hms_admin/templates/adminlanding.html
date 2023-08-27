@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Admin Panel Login/Signup</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static 'adminlandingstyle.css' %}"> 
+</head>
+<body>
+	<div class="login-signup-form">
+		<h2>Admin Panel Login</h2>
+		<form action="{% url 'login_view' %}" method="post">
+			{% csrf_token %}
+			<label for="admin_username">Username:</label>
+			<input type="text" id="admin_username" name="admin_username" placeholder="Enter your username" required>
+			<label for="admin_password">Password:</label>
+			<input type="password" id="admin_password" name="admin_password" placeholder="Enter your password" required>
+			<input type="submit" value="Login">
+		</form>
+	</div>
+	
+	<div class="login-signup-form" id="signup">
+		<h2>Admin Panel Signup</h2>
+		<form action="{% url 'adminlanding' %}" method="post">
+			{% csrf_token %}
+			<label for="fullname">Full Name:</label>
+			<input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email" placeholder="Enter your email" required>
+			<label for="new-username">Username:</label>
+			<input type="text" id="new-username" name="Username" placeholder="Enter your desired username" required>
+			<label for="new-password">Password:</label>
+			<input type="password" id="new-password" name="Password" placeholder="Enter your desired password" required>
+			<input type="submit" value="Sign up">
+		</form>
+	</div>
+</body>
+</html>

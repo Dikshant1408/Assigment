@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Doctor Registration</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+        }
+
+        h1 {
+        text-align: center;
+        font-size: 32px;
+        margin: 20px 0;
+        background-color: #4CAF50;
+        color: white;
+        }
+
+        form {
+        max-width: 500px;
+        margin: 0 auto;
+        }
+
+        label {
+        display: inline-block;
+        width: 150px;
+        text-align: right;
+        margin-right: 10px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        select {
+        width: 300px;
+        height: 30px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        }
+
+        input[type="date"] {
+        width: 300px;
+        height: 30px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        }
+
+        select {
+        height: 34px;
+        }
+
+        input[type="submit"] {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px 0;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+        background-color: #3e8e41;
+        }
+
+        .error-message {
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+        }
+
+        .back-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: darkgreen;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+	<h1>Doctor Registration Form</h1>
+    <form method="GET" action="{% url 'admin_dashboard' %}">
+        <button type="submit" class="back-btn">Back to Dashboard</button>
+    </form>
+	<form action="{% url 'doctor_registration' %}" method="POST">
+		{% csrf_token %}
+		<label for="name">Name:</label>
+		<input type="text" id="name" name="name"><br><br>
+
+		<label for="email">Email:</label>
+		<input type="email" id="email" name="email"><br><br>
+
+		<label for="phone">Phone:</label>
+		<input type="text" id="phone" name="phone"><br><br>
+
+		<label for="specialization">Specialization:</label>
+		<input type="text" id="specialization" name="specialization"><br><br>
+
+		<label for="gender">Gender:</label>
+		<select id="gender" name="gender">
+			<option value="male">Male</option>
+			<option value="female">Female</option>
+			<option value="other">Other</option>
+		</select><br><br>
+
+		<label for="date_of_birth">Date of Birth:</label>
+		<input type="date" id="date_of_birth" name="date_of_birth"><br><br>
+
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password"><br><br>
+
+		<input type="submit" value="Register">
+	</form>
+</body>
+</html>

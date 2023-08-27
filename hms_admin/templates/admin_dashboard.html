@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin Dashboard - Hospital Management System</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<style type="text/css">
+		.header {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        }
+      
+      .header h1 {
+        margin: 0;
+        }
+        
+      body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+
+		.container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+
+		.card {
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+			padding: 20px;
+			margin: 20px;
+			width: 300px;
+			text-align: center;
+			transition: all 0.3s ease-in-out;
+		}
+
+		.card:hover {
+			transform: translateY(-10px);
+		}
+
+		.card-link {
+			text-decoration: none;
+			color: #333;
+		}
+
+		.card i {
+			font-size: 3em;
+			margin-bottom: 20px;
+		}
+
+		.card h2 {
+			font-size: 1.5em;
+			margin-bottom: 10px;
+		}
+
+		.card p {
+			font-size: 1em;
+			margin-bottom: 20px;
+			line-height: 1.5em;
+		}
+
+		.card-red {
+			background-color: #4caf50;
+			color: #fff;
+		}
+
+		.card-blue {
+			background-color: #4caf50;
+			color: #fff;
+		}
+
+		.card-green {
+			background-color: #4caf50;
+			color: #fff;
+		}
+
+		.back-btn {
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			background-color: darkgreen;
+			color: white;
+			border: none;
+			padding: 10px;
+			font-size: 16px;
+			cursor: pointer;
+			border-radius: 5px;
+			}
+	</style>
+</head>
+<body>
+	<form method="GET" action="{% url 'adminlanding' %}">
+		<button type="submit" class="back-btn">Logout</button>
+	</form>
+    <div class="header">
+        <h1>Hospital Management System Admin Dashboard</h1>
+    </div>
+	<div class="container">
+		<div class="card card-red">
+			<a href="{% url 'view_queries' %}" class="card-link">
+				<i class="fas fa-list-ul"></i>
+				<h2>Queries</h2>
+				<p>View and manage queries from people.</p>
+			</a>
+		</div>
+		<div class="card card-blue">
+			<a href="{% url 'patient_list' %}" class="card-link">
+				<i class="fas fa-user-injured"></i>
+				<h2>Manage Patients</h2>
+				<p>View and manage patient information and records.</p>
+			</a>
+		</div>
+		<div class="card card-green">
+			<a href="{% url 'manage_doctors' %}" class="card-link">
+				<i class="fas fa-user-md"></i>
+				<h2>Manage Doctors</h2>
+				<p>View and manage doctor information and schedules.</p>
+			</a>
+		</div>
+	</div>
+</body>
+</html>

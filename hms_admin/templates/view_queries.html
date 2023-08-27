@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Contact Us Queries</title>
+  <style>
+    /* Style for the "Back to Dashboard" button */
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    /* Style for the page header */
+    h1 {
+      text-align: center;
+      margin-top: 50px;
+    }
+    /* Style for the individual queries */
+    .query {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      position: relative;
+    }
+    .query h3 {
+      margin-top: 0;
+    }
+    .query p {
+      margin: 0;
+      line-height: 1.5;
+    }
+    .delete-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .delete-btn:hover {
+    background-color: darkred;
+  }
+  </style>
+</head>
+<body>
+  <h1>Contact Us Queries</h1>
+  <form method="GET" action="{% url 'admin_dashboard' %}">
+    <button type="submit" class="back-btn">Back to Dashboard</button>
+  </form>
+  {% if queries %}
+    {% for query in queries %}
+      <div class="query">
+        <h3>Query {{ forloop.counter }}</h3>
+        <p><span>Name:</span> {{ query.name }}</p>
+        <p><span>Email:</span> {{ query.email }}</p>
+        <p><span>Message:</span> {{ query.message|linebreaksbr }}</p>
+        <form method="POST" action="{% url 'view_queries' %}">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ query.id }}" id="id">
+            <button type="submit" class="delete-btn">Delete</button>
+        </form>
+      </div>
+    {% empty %}
+      <p>No queries found.</p>
+    {% endfor %}
+  {% else %}
+    <p>No queries found.</p>
+  {% endif %}
+</body>
+</html>
